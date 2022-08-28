@@ -1,6 +1,6 @@
 package receiver
 
-//GetSessionByNamespace attempts to return the first session with a specified namespace.
+// GetSessionByNamespace attempts to return the first session with a specified namespace.
 func (s *Status) GetSessionByNamespace(namespace string) *ApplicationSession {
 
 	for _, app := range s.Applications {

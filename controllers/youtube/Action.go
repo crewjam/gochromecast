@@ -18,7 +18,7 @@ type actionRequestParameters struct {
 	GSessionID          string
 }
 
-//CreateActionRequest to be sent to active session.
+// CreateActionRequest to be sent to active session.
 func createActionRequest(params actionRequestParameters) generic.RequestComponents {
 	requestCount := params.RequestCount
 	header := req.Header{

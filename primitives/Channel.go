@@ -9,7 +9,7 @@ import (
 	"github.com/AndreasAbdi/gochromecast/generic"
 )
 
-//Channel is an abstraction over a chromecast channel.
+// Channel is an abstraction over a chromecast channel.
 type Channel struct {
 	client        *Client
 	sourceID      string
@@ -25,7 +25,7 @@ type channelListener struct {
 	callback     func(*api.CastMessage)
 }
 
-//HasRequestID is a generic type describing any form of request to a channel. All requests need to have a request id.
+// HasRequestID is a generic type describing any form of request to a channel. All requests need to have a request id.
 type HasRequestID interface {
 	setRequestID(id int)
 	getRequestID() int
@@ -41,7 +41,7 @@ type HasRequestID interface {
 	5. Request method returns the unmarshalled chromecast event if it worked, timeout if it didn't receive the event in time.
 */
 
-//Processes message and sends it to waiting channels in inflight chans array and call listener callbacks with defined requestID.
+// Processes message and sends it to waiting channels in inflight chans array and call listener callbacks with defined requestID.
 func (c *Channel) receiveMessage(message *api.CastMessage, headers *PayloadHeaders) {
 
 	if *message.DestinationId != "*" && (*message.SourceId != c.DestinationID || *message.DestinationId != c.sourceID || *message.Namespace != c.namespace) {
@@ -70,7 +70,7 @@ func (c *Channel) receiveMessage(message *api.CastMessage, headers *PayloadHeade
 
 }
 
-//OnMessage adds a callback listener for a certain type of message with specified responseType
+// OnMessage adds a callback listener for a certain type of message with specified responseType
 func (c *Channel) OnMessage(responseType string, cb func(*api.CastMessage)) {
 	c.listeners = append(c.listeners, channelListener{responseType, cb})
 }

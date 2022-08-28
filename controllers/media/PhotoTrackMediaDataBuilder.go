@@ -20,7 +20,7 @@ import (
 
 //const PhotoMediaMetadataType int = 4
 
-//GenericMediaDataBuilder component for building up mediadatabuilders
+// GenericMediaDataBuilder component for building up mediadatabuilders
 type PhotoTrackMediaDataBuilder struct {
 	standardMediaDataBuilder
 	artist           string
@@ -33,44 +33,44 @@ type PhotoTrackMediaDataBuilder struct {
 	creationDateTime string
 }
 
-//SetTitle sets the builder's title
+// SetTitle sets the builder's title
 func (builder *PhotoTrackMediaDataBuilder) SetTitle(title string) {
 	builder.title = title
 }
 
-//SetArtist sets the builder's artist
+// SetArtist sets the builder's artist
 func (builder *PhotoTrackMediaDataBuilder) SetArtist(artist string) {
 	builder.artist = artist
 }
 
-//TODO
+// TODO
 func (builder *PhotoTrackMediaDataBuilder) SetLocation(location string) {
 }
 
-//TODO
+// TODO
 func (builder *PhotoTrackMediaDataBuilder) SetLatitude(latitude float64) {
 }
 
-//TODO
+// TODO
 func (builder *PhotoTrackMediaDataBuilder) SetLongitude(longitude float64) {
 
 }
 
-//SetArtist sets the builder's artist
+// SetArtist sets the builder's artist
 func (builder *PhotoTrackMediaDataBuilder) SetWidth(width int64) {
 	builder.width = width
 }
 
-//SetArtist sets the builder's artist
+// SetArtist sets the builder's artist
 func (builder *PhotoTrackMediaDataBuilder) SetHeight(height int64) {
 	builder.height = height
 }
 
-//TODO
+// TODO
 func (builder *PhotoTrackMediaDataBuilder) SetCreationTime(creationTime time.Time) {
 }
 
-//Build returns a standard mediadata object from its current data.
+// Build returns a standard mediadata object from its current data.
 func (builder *PhotoTrackMediaDataBuilder) Build() (MediaData, error) {
 
 	metadata := PhotoTrackMediaMetadata{

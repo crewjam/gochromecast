@@ -15,7 +15,7 @@ type listener struct {
 	cb           func(*api.CastMessage)
 }
 
-//mediaConnection is an abstraction over the more complicated process of setting up a connection for an application session. Treat it effectively as a channel with setup and teardown.
+// mediaConnection is an abstraction over the more complicated process of setting up a connection for an application session. Treat it effectively as a channel with setup and teardown.
 type mediaConnection struct {
 	client               *primitives.Client
 	receiverController   *ReceiverController
@@ -27,7 +27,7 @@ type mediaConnection struct {
 	sourceID             string //the id for the requesting application.
 }
 
-//NewMediaConnection constructor for application sessions.
+// NewMediaConnection constructor for application sessions.
 func NewMediaConnection(client *primitives.Client, receiverController *ReceiverController, namespace string, sourceID string) *mediaConnection {
 	connection := mediaConnection{
 		client:             client,
@@ -38,7 +38,7 @@ func NewMediaConnection(client *primitives.Client, receiverController *ReceiverC
 	return &connection
 }
 
-//Terminate the media connection for an application session's channel.
+// Terminate the media connection for an application session's channel.
 func (connection *mediaConnection) Terminate(timeout time.Duration) {
 	if connection.connectionController != nil {
 		connection.connectionController.Close()

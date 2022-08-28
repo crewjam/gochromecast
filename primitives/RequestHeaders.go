@@ -1,6 +1,6 @@
 package primitives
 
-//PayloadHeaders are general request components for any message to be passed to a chromecast.
+// PayloadHeaders are general request components for any message to be passed to a chromecast.
 type PayloadHeaders struct {
 	Type      string `json:"type"`
 	RequestID *int   `json:"requestId,omitempty"`

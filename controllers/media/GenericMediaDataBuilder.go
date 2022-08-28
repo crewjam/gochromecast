@@ -15,7 +15,7 @@ const TvShowMetadataType int = 2
 const MusicTrackMetadataType int = 3
 const PhotoMediaMetadataType int = 4
 
-//genericMediaDataBuilder component for building up mediadatabuilders
+// genericMediaDataBuilder component for building up mediadatabuilders
 type genericMediaDataBuilder struct {
 	standardMediaDataBuilder
 	imageURLs   []string
@@ -24,7 +24,7 @@ type genericMediaDataBuilder struct {
 	releaseDate *time.Time
 }
 
-//NewGenericMediaDataBuilder is a constructor for the media data builder class
+// NewGenericMediaDataBuilder is a constructor for the media data builder class
 func NewGenericMediaDataBuilder(contentID contentID, contentType contentType, sType streamType) (genericMediaDataBuilder, error) {
 	builder := genericMediaDataBuilder{}
 	builder.SetContentID(contentID)
@@ -33,7 +33,7 @@ func NewGenericMediaDataBuilder(contentID contentID, contentType contentType, sT
 	return builder, nil
 }
 
-//SetImageURLs the display image slideshow urls for the media message
+// SetImageURLs the display image slideshow urls for the media message
 func (builder *genericMediaDataBuilder) SetImageURLs(imageURLs []string) {
 	for index := 0; index < len(imageURLs); index++ {
 		_, err := url.ParseRequestURI(imageURLs[index])
@@ -44,17 +44,17 @@ func (builder *genericMediaDataBuilder) SetImageURLs(imageURLs []string) {
 	builder.imageURLs = imageURLs
 }
 
-//SetTitle sets the builder's title
+// SetTitle sets the builder's title
 func (builder *genericMediaDataBuilder) SetTitle(title *string) {
 	builder.title = title
 }
 
-//SetSubtitleURL sets the builder's subtitle
+// SetSubtitleURL sets the builder's subtitle
 func (builder *genericMediaDataBuilder) SetSubtitle(subtitle *string) {
 	builder.subtitle = subtitle
 }
 
-//SetReleaseDate sets release date for element.
+// SetReleaseDate sets release date for element.
 func (builder *genericMediaDataBuilder) SetReleaseDate(releaseDate *time.Time) {
 	builder.releaseDate = releaseDate
 }
@@ -67,7 +67,7 @@ func convertDateToISO8601(date *time.Time) *string {
 	return &formatted
 }
 
-//Build returns a standard mediadata object from its current data.
+// Build returns a standard mediadata object from its current data.
 func (builder *genericMediaDataBuilder) Build() (MediaData, error) {
 	date := convertDateToISO8601(builder.releaseDate)
 	metadata := genericMediaMetadata{

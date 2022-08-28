@@ -10,7 +10,7 @@ import (
 	"github.com/fatih/structs"
 )
 
-//testing to get error message
+// testing to get error message
 func TestDefaultBuild(t *testing.T) {
 	builder, er := NewGenericMediaDataBuilder("1", "image/JPEG", NoneStreamType)
 	if er != nil {

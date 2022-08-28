@@ -1,6 +1,6 @@
 package controllers
 
-//InitializationError struct for initialization failure of youtube/chromecast applications.
+// InitializationError struct for initialization failure of youtube/chromecast applications.
 type InitializationError struct {
 }
 

@@ -7,11 +7,11 @@ import (
 	"github.com/hashicorp/mdns"
 )
 
-//Hard defined device buffer size for
-//Chromecasts are chatty so we wouldn't need to worry too much about lots of devices in one network. It's not really feasible.
+// Hard defined device buffer size for
+// Chromecasts are chatty so we wouldn't need to worry too much about lots of devices in one network. It's not really feasible.
 const deviceBufferSearchSize = 100
 
-//FindDevices searches the LAN for chromecast devices via mDNS and sends them to a channel.
+// FindDevices searches the LAN for chromecast devices via mDNS and sends them to a channel.
 func FindDevices(timeout time.Duration, devices chan<- *Device) {
 
 	// Make a channel for results and start listening

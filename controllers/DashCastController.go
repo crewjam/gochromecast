@@ -13,19 +13,20 @@ import (
 	Plays a url and then reloads it a few times. Rather than having to cast your own browser, this is easier.
 */
 
-//DashCastController is the controller for the commands unique to the dashcast.
+// DashCastController is the controller for the commands unique to the dashcast.
 type DashCastController struct {
 	channel *primitives.Channel
 }
 
-//NewDashCastController is a constructor for a dash cast controller.
+// NewDashCastController is a constructor for a dash cast controller.
 func NewDashCastController(client primitives.Client, sourceID, destinationID string) *DashCastController {
 	return &DashCastController{
 		channel: client.NewChannel(sourceID, destinationID, dashcastControllerNamespace),
 	}
 }
 
-/*Load loads a url, reloads it every few seconds. Forces launch of the url if you tell it to.
+/*
+Load loads a url, reloads it every few seconds. Forces launch of the url if you tell it to.
 Setting force to True may load pages which block iframe embedding, but will prevent reload from
 working and will cause calls to load_url() to reload the app.
 */

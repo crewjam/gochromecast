@@ -13,7 +13,7 @@ import (
 
 const defaultTimeout = time.Second * 10
 
-//Device Object to run basic chromecast commands
+// Device Object to run basic chromecast commands
 type Device struct {
 	client               *primitives.Client
 	heartbeatController  *controllers.HeartbeatController
@@ -24,7 +24,7 @@ type Device struct {
 	CastDeckController   *controllers.CastDeckController
 }
 
-//NewDevice is constructor for Device struct
+// NewDevice is constructor for Device struct
 func NewDevice(host net.IP, port int) (Device, error) {
 	var device Device
 
@@ -49,19 +49,19 @@ func NewDevice(host net.IP, port int) (Device, error) {
 	return device, nil
 }
 
-//Play just plays.
+// Play just plays.
 func (device *Device) Play() {
 	device.MediaController.Play(defaultTimeout)
 }
 
-//PlayMedia plays a video via the media controller.
+// PlayMedia plays a video via the media controller.
 func (device *Device) PlayMedia(URL string, MIMEType string) {
 	appID := configs.MediaReceiverAppID
 	device.ReceiverController.LaunchApplication(&appID, defaultTimeout, false)
 	device.MediaController.Load(URL, MIMEType, defaultTimeout)
 }
 
-//QuitApplication that is currently running on the device
+// QuitApplication that is currently running on the device
 func (device *Device) QuitApplication(timeout time.Duration) {
 	status, err := device.ReceiverController.GetStatus(timeout)
 	if err != nil {
@@ -73,14 +73,14 @@ func (device *Device) QuitApplication(timeout time.Duration) {
 	}
 }
 
-//PlayYoutubeVideo launches the youtube app and tries to play the video based on its id.
+// PlayYoutubeVideo launches the youtube app and tries to play the video based on its id.
 func (device *Device) PlayYoutubeVideo(videoID string) {
 	appID := configs.YoutubeAppID
 	device.ReceiverController.LaunchApplication(&appID, defaultTimeout, false)
 	device.YoutubeController.PlayVideo(videoID, "")
 }
 
-//GetMediaStatus of current media controller
+// GetMediaStatus of current media controller
 func (device *Device) GetMediaStatus(timeout time.Duration) []*media.MediaStatus {
 	response, err := device.MediaController.GetStatus(time.Second * 5)
 	if err != nil {
@@ -90,7 +90,7 @@ func (device *Device) GetMediaStatus(timeout time.Duration) []*media.MediaStatus
 	return response
 }
 
-//GetStatus of the device.
+// GetStatus of the device.
 func (device *Device) GetStatus(timeout time.Duration) *receiver.Status {
 	response, err := device.ReceiverController.GetStatus(time.Second * 5)
 	if err != nil {

@@ -1,6 +1,6 @@
 package dashcast
 
-//LoadCommand is the command o send to play a url on the dashcast.
+// LoadCommand is the command o send to play a url on the dashcast.
 type LoadCommand struct {
 	URL        string `json:"url"`
 	Force      bool   `json:"force"`

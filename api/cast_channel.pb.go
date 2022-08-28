@@ -6,9 +6,11 @@
 Package api is a generated protocol buffer package.
 
 It is generated from these files:
+
 	api/cast_channel.proto
 
 It has these top-level messages:
+
 	CastMessage
 	AuthChallenge
 	AuthResponse

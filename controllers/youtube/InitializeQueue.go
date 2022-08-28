@@ -10,7 +10,7 @@ import (
 
 const actionSetPlaylist = "setPlaylist"
 
-//components for the initializeQueueRequest parameters and body
+// components for the initializeQueueRequest parameters and body
 const listIDKey = "_listId"
 const actionKey = "__sc"
 const currentTimeKey = "_currentTime"

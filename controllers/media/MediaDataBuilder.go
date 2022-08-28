@@ -2,7 +2,7 @@ package media
 
 //Perhaps considering error returns if builder fails to add operation.
 
-//MediaDataBuilder interface for generic media player media data messages to pass to chromecast.
+// MediaDataBuilder interface for generic media player media data messages to pass to chromecast.
 type MediaDataBuilder interface {
 	SetContentID(string)
 	SetContentType(string)
@@ -12,7 +12,7 @@ type MediaDataBuilder interface {
 	Build() (MediaData, error)
 }
 
-//standardMediaDataBuilder component for building up mediadatabuilders
+// standardMediaDataBuilder component for building up mediadatabuilders
 type standardMediaDataBuilder struct {
 	contentID   string
 	contentType string
@@ -21,7 +21,7 @@ type standardMediaDataBuilder struct {
 	customData  map[string]interface{}
 }
 
-//SetContentID sets the contentID field
+// SetContentID sets the contentID field
 func (builder *standardMediaDataBuilder) SetContentID(id contentID) {
 	builder.contentID = string(id)
 }
@@ -30,7 +30,7 @@ func (builder *standardMediaDataBuilder) SetContentType(contentType contentType)
 	builder.contentType = string(contentType)
 }
 
-//SetStreamType sets the streamType field
+// SetStreamType sets the streamType field
 func (builder *standardMediaDataBuilder) SetStreamType(sType streamType) {
 	switch sType {
 	case NoneStreamType, BufferedStreamType, LiveStreamType:
@@ -38,17 +38,17 @@ func (builder *standardMediaDataBuilder) SetStreamType(sType streamType) {
 	}
 }
 
-//SetDuration sets the contentType field
+// SetDuration sets the contentType field
 func (builder *standardMediaDataBuilder) SetDuration(duration *float64) {
 	builder.duration = duration
 }
 
-//SetCustomData sets the custom data field
+// SetCustomData sets the custom data field
 func (builder *standardMediaDataBuilder) SetCustomData(customData map[string]interface{}) {
 	builder.customData = customData
 }
 
-//Build returns a standard mediadata object from its current data.
+// Build returns a standard mediadata object from its current data.
 func (builder *standardMediaDataBuilder) Build() (MediaData, error) {
 	return MediaData{
 		builder.contentID,
