@@ -21,6 +21,7 @@ type Device struct {
 	ReceiverController   *controllers.ReceiverController
 	MediaController      *controllers.MediaController
 	YoutubeController    *controllers.YoutubeController
+	CastDeckController   *controllers.CastDeckController
 }
 
 //NewDevice is constructor for Device struct
@@ -44,6 +45,7 @@ func NewDevice(host net.IP, port int) (Device, error) {
 	device.MediaController = controllers.NewMediaController(client, defaultChromecastSenderID, device.ReceiverController)
 
 	device.YoutubeController = controllers.NewYoutubeController(client, defaultChromecastSenderID, device.ReceiverController)
+	device.CastDeckController = controllers.NewCastDeckController(client, defaultChromecastSenderID, device.ReceiverController)
 	return device, nil
 }
 
